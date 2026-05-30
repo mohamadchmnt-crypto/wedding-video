@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invitationcard</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'irannastaliq';
+        src: url(IranNastaliq_YasDL.com.ttf);
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        background: #000;
+        text-align: center;
+    }
+    video{
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
+        display: block;
+        background: #000;
+    }
+    #location{
+        display: none;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        clear: both;
+    }
+    #location a{
+        display: inline-block;
+        padding: 15px 25px;
+    }
+    .location-btn{
+        display: inline-block;
+        margin: 20px;
+        padding: 15px 30px;
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        border-radius: 50px;
+        font-size: 32px;
+        font-family: 'irannastaliq',serif;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <video id="weddingvideo" autoplay controls playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div id="location" style="display: none;">
+        <a class="location-btn" href="https://nshn.ir/e7rbWpAQ5Bwle2" target="_blank">مسیریابی تا محل مراسم</a>
+    </div>
+    <script>
+        const video = document.getElementById("weddingvideo");
+        video.addEventListener("ended",function()
+        {
+            document.getElementById("location").style.display="block";
+        });
+    </script>
+</body>
+</html>
