@@ -19,6 +19,7 @@
         margin: 0;
         background: #000;
         text-align: center;
+        position: relative;
     }
     video{
         width: 100%;
@@ -28,11 +29,18 @@
         background: #000;
     }
     #location{
-        display: none;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-        clear: both;
+        position: absolute;
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 1;
+        visibility: hidden;
+        transition: all 1.5s ease;
+        z-index: 10;
+    }
+    #location.show{
+        opacity: 1;
+        visibility: visible;
     }
     #location a{
         display: inline-block;
@@ -54,14 +62,20 @@
     <video id="weddingvideo" autoplay controls playsinline>
         <source src="video.mp4" type="video/mp4">
     </video>
-    <div id="location" style="display: none;">
+    <div id="location">
         <a class="location-btn" href="https://nshn.ir/e7rbWpAQ5Bwle2" target="_blank">مسیریابی تا محل مراسم</a>
     </div>
     <script>
         const video = document.getElementById("weddingvideo");
-        video.addEventListener("ended",function()
+        const locationBtn=document.getElementById("location");
+        video.addEventListener("ended", ()=>
         {
-            document.getElementById("location").style.display="block";
+            if(confirm("برای مشاهده مسیر مراسم کلیک کتید"))
+        {
+            window.open("https://nshn.ir/e7rbWpAQ5Bwle2","blank")
+        }
+            locationBtn.classList.add("show");
+           
         });
     </script>
 </body>
