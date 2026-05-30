@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>invitationcard</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'irannastaliq';
+        src: url(IranNastaliq_YasDL.com.ttf);
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        background: #000;
+        text-align: center;
+        position: relative;
+    }
+    video{
+        width: 100%;
+        height: 100vh;
+        object-fit: contain;
+        display: block;
+        background: #000;
+    }
+    .modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+}
+.location-btn{
+    display:inline-block;
+    padding:10px 20px;
+    border:1px solid #ccc;
+    background:#fff;
+    color:#555;
+    text-decoration:none;
+    border-radius:4px;
+    font-size:16px;
+    cursor:pointer;
+}
+.modal.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content{
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+}
+
+#closeModal{
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+</style>
+<body>
+    <video id="weddingvideo" autoplay controls playsinline>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p>برای مشاهده مسیر روی دکمه زیر کلیک کنید</p>
+            
+            <a href="https://nshn.ir/e7_bWpAQ5Bwle2"
+               target="_blank"
+               class="location-btn">
+                مسیریابی
+            </a>
+    
+            <button id="closeModal">بستن</button>
+        </div>
+    </div>
+    <script>
+         const video = document.getElementById("weddingvideo");
+        const modal = document.getElementById("modal");
+        const closeModal = document.getElementById("closeModal");
+
+        video.addEventListener("ended", () => {
+            modal.classList.add("show");
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.classList.remove("show");
+        }); 
+    </script>
+</body>
+</html>
